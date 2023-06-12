@@ -1,0 +1,53 @@
+body {
+  background-color: rgb(0, 83, 155);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+  margin-top: 10px;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+select {
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+button {
+  font-size: 16px;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #e06100;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input {
+  font-size: 16px;
+  margin-top: 10px;
+  padding: 8px;
+  width: 200px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+p {
+  font-size: 18px;
+  margin-top: 20px;
+}
