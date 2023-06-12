@@ -1,94 +1,129 @@
-import React, { useState } from 'react';
+import React, {useState} from "react";
+
 import './App.css';
 
+import { Board } from "./components/Board"
+import { ScoreBoard } from "./components/ScoreBoard";
+import { ResetButton } from "./components/ResetButton";
+import { Quit } from "./components/Quit";
 
-const App = () => {
+function App() {
+
+// lista warunków zwycięstwa
+  const WIN_CONDITIONS = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ]
+
+  const [board, setBoard] = useState(Array(9).fill(null)); //Ustawienie pustej planszy
+  const [xPlaying, setXPlaying] = useState(false); //Domyślne ustawienie gracza jako "O"
+  const [scores, setScores] = useState({ xScore: 0, oScore: 0 }) //Zerowanie Wyników
+  const [gameOver, setGameOver] = useState(false); //Stan końca gry, początkowo false
+
+
+// funkcja obsługująca kliknięcie na pole planszy
+  const handleBoxClick = (boxIdx) => {
+    const updatedBoard = board.map((value, idx) => {
+      if (idx === boxIdx) {
+        return xPlaying ? "X" : "O"; // wartość na polu jest ustawiana na X lub O, w zależności od tego, czy gra gracz X czy O
+      } else {
+        return value;
+      }
+    })
+
+    const winner = checkWinner(updatedBoard); // sprawdzenie, czy któryś z graczy wygrał
+
+    //Przypisanie wyników 
+    if (winner) { //jeśli gra została wygrana
+      if (winner === "O") {
+        let { oScore } = scores;
+        oScore += 1;
+        setScores({ ...scores, oScore })
+      } else {
+        let { xScore } = scores;
+        xScore += 1;
+        setScores({ ...scores, xScore })
+      }
+    } else if (!winner && !updatedBoard.includes(null)) { //jeśli nie ma już pustych pól na planszy
+      setGameOver(true);
+    } else {
+      // Jeśli nie ma jeszcze zwycięzcy, a gra jeszcze się nie skończyła, tura komputera
+      const emptyBoxes = updatedBoard.reduce((acc, val, idx) => {
+        if (!val) {
+          acc.push(idx);
+        }
+        return acc;
+      }, []);
   
-  const [level, setLevel] = useState('easy');
-  const [number, setNumber] = useState(null);
-  const [guess, setGuess] = useState('');
-  const [message, setMessage] = useState('');
-
-  const generateRandomNumber = (min, max) => {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-  };
-
-  const startApp = () => {
-    let min, max;
-    switch (level) {
-      case 'easy':
-        min = 1;
-        max = 10;
-        break;
-      case 'medium':
-        min = 1;
-        max = 50;
-        break;
-      case 'hard':
-        min = 1;
-        max = 100;
-        break;
-      case 'extreme':
-        min = 1;
-        max = 1000;
-        break;
-      default:
-        min = 1;
-        max = 10;
+      // Losowo wybiera puste pole, aby umieścić ruch komputera
+      const computerMove = emptyBoxes[Math.floor(Math.random() * emptyBoxes.length)];
+      updatedBoard[computerMove] = xPlaying ? "O" : "X";
+  
+      // Sprawdzenie, czy po ruchu komputera jest zwycięzca
+      const computerWinner = checkWinner(updatedBoard);
+  
+      if (computerWinner) {
+        // Jeśli komputer wygra, zaaktualizuj wyniki i ustaw grę jako zakończoną
+        if (computerWinner === "O") {
+          let { oScore } = scores;
+          oScore += 1;
+          setScores({ ...scores, oScore })
+        } else {
+          let { xScore } = scores;
+          xScore += 1;
+          setScores({ ...scores, xScore })
+        }
+        setGameOver(true);
+      }
     }
-    setNumber(generateRandomNumber(min, max));
-    setMessage('');
-    setGuess('');
-  };
 
-  const handleGuess = () => {
-    const parsedGuess = parseInt(guess, 10);
-    if (isNaN(parsedGuess)) {
-      setMessage('Podaj liczbę!');
-    } else if (parsedGuess === number) {
-      setMessage('Brawo! Odgadłeś liczbę!');
-    } else if (parsedGuess < number) {
-      setMessage('Szukana liczba jest większa!');
-    } else if (parsedGuess > number) {
-      setMessage('Szukana liczba jest mniejsza!');
+    // Aktualizacja planszy
+    setBoard(updatedBoard);
+
+  }
+
+  // Sprawdzenie czy jest wygrany na podstawie aktualnego stanu planszy
+  const checkWinner = (board) => {
+    for (let i = 0; i < WIN_CONDITIONS.length; i++) {
+      const [x, y, z] = WIN_CONDITIONS[i];
+
+      if (board[x] && board[x] === board[y] && board[y] === board[z]) {
+        setGameOver(true);
+        return board[x];
+      }
     }
-    setGuess('');
+  }
+
+
+  // Funkcja resetuje planszę do stanu początkowego i rozpoczyna nową grę
+  const resetBoard = (startingPlayer) => {
+    setGameOver(false);
+    setBoard(Array(9).fill(null));
+    setXPlaying(startingPlayer === "X" ? true : false);
   };
 
-  const exitApp = () => {
-    setLevel('easy');
-    setNumber(null);
-    setGuess('');
-    setMessage('');
+  //Chwilowo na czas przebudowy
+  const quit = () => {
   };
+
 
   return (
-    <div className="container">
-      <h1>Zgadnij liczbę</h1>
-      <label>
-        Poziom trudności:
-        <select value={level} onChange={(e) => setLevel(e.target.value)}>
-          <option value="easy">Łatwy (1-10)</option>
-          <option value="medium">Średni (1-50)</option>
-          <option value="hard">Trudny (1-100)</option>
-          <option value="extreme">Extreme (1-1000)</option>
-        </select>
-      </label>
-      <br />
-      <button onClick={startApp}>Rozpocznij grę</button>
-      <br />
-      <input
-        type="text"
-        placeholder="Podaj liczbę"
-        value={guess}
-        onChange={(e) => setGuess(e.target.value)}
-      />
-      <button onClick={handleGuess}>Sprawdź</button>
-      <br />
-      <p>{message}</p>
-      <button onClick={exitApp}>Wyjdź</button>
+    <div className="App">
+      <ScoreBoard scores = {scores} xPlaing={xPlaying}/>
+      <Board board={board} onClick={gameOver ? resetBoard : handleBoxClick}/>
+      <ResetButton resetBoard={resetBoard}/>
+      <Quit quit={quit}/>
+      <button onClick={() => resetBoard("X")}>Wybierz X</button>
+      <button onClick={() => resetBoard("O")}>Wybierz O</button>
+      
     </div>
   );
-};
+}
 
 export default App;
