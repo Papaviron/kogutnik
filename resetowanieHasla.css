@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Bahiana&family=Raleway:ital,wght@0,500;0,700;1,500&family=Roboto&family=Sigmar&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+body {
+    background-color: #3b3bab;
+    position: relative;
+    max-width: 1920px;
+}
+
+.dark-mode {
+	background-color: #222;
+}
+
+.formularz {
+	position: fixed;
+	top: 25%;
+	left: 37%;
+    display: inline-block;
+    background-color: rgb(225, 103, 58);
+    min-width: 350px;
+    width: 26vw;
+    height: 50vh;
+    border: 30px solid rgb(225, 103, 58);;
+    border-radius: 15px;
+  	text-align: center;
+}
+
+div.left {
+	text-align: left;
+}
+
+p {
+    text-transform: uppercase;
+    color: white;
+	font-size: 30px;
+    font-family: raleway;
+    font-weight: 500;
+}
+
+
+.error p {
+    text-transform: uppercase;
+    color: white;
+	font-size: 30px;
+    font-family: raleway;
+    font-size: 100%;
+    font-weight: 400;
+}
+
+.err {
+	font-size: 20px;
+}
+
+input {
+    display: block;
+    line-height: 5vh;
+    width: 100%;
+    margin-bottom: 1.3vh;
+    font-family: raleway;
+    font-size: 200%;
+    color: black;   
+}
+
+input::placeholder {
+    color: rgb(0, 0, 0, 0.2);
+    display: block;
+    line-height: 5vh; 
+    padding-left: 0.5vw;
+}
+
+
+/*zarejestruj się*/
+input.main {
+    display: inline-block;
+	margin-top: 15px;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 200%;
+    font-family: sigmar;
+    background-color: #3b3bab;
+    padding: 0 10px;
+	border: none;
+    width: 20vw;
+    text-align: center;
+    line-height: 300%;
+    transition: 0.5s;  
+}
+
+.main:hover {
+    background-color: white;
+    color: rgb(225, 103, 58);
+    box-shadow: 0 0 20px 2px orange;
+}
+
+
+input+p{
+	display: inline-block;
+	font-family: raleway;
+	font-size: 15px;
+	vertical-align: 30%;
+	margin-left: 10px;
+}
+
+.textbox {
+    height:50px;
+    font-size:14pt;
+}
+
+button.switch {
+    position: fixed;
+    bottom: 0%;
+    right: 3%;
+    display: inline-block;
+    text-transform: uppercase;
+    max-width: 150px;
+    text-align: center;
+    font-family: Raleway;
+    font-size: 15px;
+    color: white;
+    background-color: rgb(225, 103, 58);
+    text-decoration: none;
+    border: none;
+    padding: 5px;
+    padding-top: 10px; 
+    transition: 0.5s;
+}
+
+
+button:hover {
+    background-color: white;
+    color: rgb(225, 103, 58);
+    box-shadow: 0 0 20px 2px orange;
+}

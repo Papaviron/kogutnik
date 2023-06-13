@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Bahiana&family=Raleway:ital,wght@0,500;0,700;1,500&family=Roboto&family=Sigmar&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+body {
+    position: relative;
+    background-color: #3b3bab;;
+    color: black;
+    font-size: 25px;
+    text-transform: uppercase;
+  }
+  
+.dark-mode {
+    background-color: rgb(20, 20, 20);
+    color: white;
+}
+
+nav {
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+    width: 100vw;
+    background-color: white;
+}
+
+nav a {
+    display: inline-block;
+    text-align: center;
+    font-family: Raleway;
+    font-size: 30px;
+    text-decoration: none;
+    padding: 10px 30px 10px 30px;
+    color: black;
+    background-color: white;
+    transition: 0.5s;
+    margin-right: 10px;
+}
+
+nav a:hover {
+    text-shadow: 0 0 0.2em rgb(225, 103, 58);
+}
+
+.language {
+    display: inline-block;
+    margin-left: 400px;
+}
+
+div {
+	font-family: Raleway;
+	font-size: 30px;
+	text-transform: uppercase;
+	color: white;
+}
+
+div>p{
+	font-family: Bahiana;
+	font-size: 60px;
+}
+
+.gra1 {
+    position: fixed;
+    text-align: center;
+    width: 20vw;
+    height: 60vh;
+    top: 20vh;
+    left: 15vw;
+}
+
+.gra2 {
+    position: fixed;
+    text-align: center;
+    width: 20vw;
+    height: 60vh;
+    top: 20vh;
+    left: 40vw;
+}
+
+.gra3 {
+    position: fixed;
+    text-align: center;
+    width: 20vw;
+    height: 60vh;
+    top: 20vh;
+    left: 65vw;
+}
+
+p {
+    padding: 10px;
+    font-family: Bahiana;
+    font-size: 100px;
+    color: white;
+    text-shadow: 0 0 0.2em rgb(225, 103, 58);
+}
+
+img {
+    width: 200px;
+    border-radius: 10%;
+}
+
+
+.content a {
+    display: inline-block;
+    max-width: 400px;
+    text-align: center;
+    font-family: Raleway;
+    font-size: 30px;
+    text-decoration: none;
+    padding: 10px 30px 10px 30px;
+    color: white;
+    background-color: rgb(225, 103, 58);
+    transition: 0.5s;
+    margin-top: 20px;
+}
+
+.content a:hover {
+    background-color: white;
+    color: rgb(225, 103, 58);
+    box-shadow: 0 0 20px 2px orange;
+}
+
+button.switch {
+    position: fixed;
+    bottom: 0%;
+    right: 3%;
+    display: inline-block;
+    text-transform: uppercase;
+    max-width: 150px;
+    text-align: center;
+    font-family: Raleway;
+    font-size: 15px;
+    color: white;
+    background-color: rgb(225, 103, 58);
+    text-decoration: none;
+    border: none;
+    padding: 5px;
+    padding-top: 10px; 
+    transition: 0.5s;
+}
+
+button:hover {
+    background-color: white;
+    color: rgb(225, 103, 58);
+    box-shadow: 0 0 20px 2px orange;
+}
+
+input.button {
+    display: inline-block;
+    text-transform: uppercase;
+    max-width: 20vw;
+    text-align: center;
+    font-family: Raleway;
+    font-size: 20px;
+    color: white;
+    background-color: rgb(225, 103, 58);
+    text-decoration: none;
+    border: none;
+    padding: 15px;
+    margin-bottom: 20px;
+    transition: 0.5s;
+}
+
+input.button:hover {
+    background-color: white;
+    color: rgb(225, 103, 58);
+    box-shadow: 0 0 20px 2px orange;
+}

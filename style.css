@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Bahiana&family=Raleway:ital,wght@0,500;0,700;1,500&family=Roboto&family=Sigmar&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+body {
+    background-color: #3b3bab;
+    position: relative;
+}
+
+.dark-mode {
+    background-color: rgb(20, 20, 20);
+    color: white;
+}
+
+nav {
+    position: fixed;
+	top: 0%;
+	left: 0%;
+    display: inline-block;
+    text-align: center;
+    width: 100vw;
+    background-color: white;
+}
+
+nav a {
+    display: inline-block;
+    text-align: center;
+    font-family: Raleway;
+    font-size: 30px;
+    text-decoration: none;
+	text-transform: uppercase;
+    padding: 10px 30px 10px 30px;
+    color: black;
+    background-color: white;
+    transition: 0.5s;
+    margin-right: 10px;
+}
+
+nav a:hover {
+    text-shadow: 0 0 0.2em rgb(225, 103, 58);
+}
+
+.language {
+    display: inline-block;
+    margin-left: 300px;
+}
+
+.content {
+    position: fixed;
+    text-align: center;
+    width: 24vw;
+    height: 60vh;
+    top: 20vh;
+    left: 38vw;
+}
+
+div.przyciski {
+    /* position: absolute;
+    top: 45vh;
+    left: 25vw; */
+    text-align: center;
+    margin: 15vh 0 5vh;
+
+}
+
+.main {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 320%;
+    font-family: sigmar;
+    background-color: rgb(225, 103, 58);
+    padding: 0 10px;
+    border-left: 20px;
+    border-right: 20px;
+    width: 25vw;
+	height: 10hv;
+    text-align: center;  
+    line-height: 300%;
+    margin: 0 2.5% 0 2.5%;
+    transition: 0.5s;  
+}
+
+.przyciski>a:hover {
+    background-color: white;
+    color: rgb(225, 103, 58);
+    box-shadow: 0 0 20px 2px orange;
+}
+
+.recoverPassword {
+	display: inline-block;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 320%;
+    font-family: sigmar;
+    background-color: rgb(225, 103, 58);
+    padding: 0 10px;
+    border-left: 20px;
+    border-right: 20px;
+    width: 25vw;
+    text-align: center;  
+    line-height: 300%;
+    margin: 0 2.5% 0 2.5%;
+    transition: 0.5s;
+}
+
+div.powitanie {
+    text-align: center;
+    margin: 20vh 0 5vh;
+}
+
+p {
+    text-transform: uppercase;
+    color: white;
+    font-family: raleway;
+    font-size: 300%;
+    font-weight: 500;
+    font-style: italic;
+}
+
+p.powitanie1 {
+    font-family: bahiana;
+    font-size: 1200%; 
+    font-weight: bold;
+}
+
+p.powitanie2 {
+    font-size: 200%;
+}
+
+i {
+    font-size: 150%;
+    padding-right: 5%;
+    vertical-align: -10%;
+}
+
+form {
+    display: inline-block;
+    background-color:  rgb(225, 103, 58);
+    margin: 30vh 40vw;
+    width: 20vw;
+    height: 45vh;
+    border: 30px solid rgb(225, 103, 58);;
+    border-radius: 15px;
+}
+
+
+.logowanie p {
+    display: block;
+    margin: 10px;
+}
+
+button.switch {
+    position: fixed;
+    bottom: 0%;
+    right: 3%;
+    display: inline-block;
+    text-transform: uppercase;
+    max-width: 150px;
+    text-align: center;
+    font-family: Raleway;
+    font-size: 15px;
+    color: white;
+    background-color: rgb(225, 103, 58);
+    text-decoration: none;
+    border: none;
+    padding: 5px;
+    padding-top: 10px; 
+    transition: 0.5s;
+}
+
+button:hover {
+    background-color: white;
+    color: rgb(225, 103, 58);
+    box-shadow: 0 0 20px 2px orange;
+}
